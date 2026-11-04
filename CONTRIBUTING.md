@@ -17,7 +17,7 @@ Pour un service déployé, un plugin distribué ou un dépôt `docs` :
 - `feature/...`, `fix/...`, `chore/...`, `docs/...` partent de `develop`, et y reviennent par une PR.
 - **Service déployé ou dépôt `docs`** : `release/AAAA-MM-JJ` part de `develop` et est fusionnée vers `main`. `hotfix/...` part de `main` pour un correctif urgent.
 - **Plugin distribué** : une version se livre par un tag `vX.Y.Z` sur `main`, après une PR de `develop` vers `main`.
-- Après chaque release, hotfix ou version, `main` est reportée vers `develop` par une PR fusionnée avec un **commit de merge**, jamais par *squash* ni *rebase*.
+- Après chaque release, hotfix ou version, `main` est reportée vers `develop` par une PR fusionnée avec un **commit de merge**, jamais par *squash* ni *rebase*. **La PR part d'une branche de synchronisation** (`sync/main-to-develop`), créée à la pointe de `main`, et jamais de `main` elle-même : la suppression automatique des branches fusionnées supprimerait `main`.
 - Vers `develop`, l'auteur peut fusionner sa PR une fois prête. Vers `main`, une approbation est exigée.
 
 Pour un prototype : une seule branche `main`, des PR conseillées, aucune obligation.
