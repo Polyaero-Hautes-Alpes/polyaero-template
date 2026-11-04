@@ -13,7 +13,7 @@ Les règles (branches, commits, releases) sont dans `CONTRIBUTING.md`, à lire a
 2. **Confirmation explicite avant `git commit`.** Présenter à l'utilisateur le diff et le message de commit proposé. Ne committer qu'après un accord explicite.
 3. **Confirmation explicite avant `git push`.** Même règle que pour le commit.
 4. **Ouvrir une Pull Request après le push** (`gh pr create`), vers `develop` par défaut, vers `main` uniquement pour une PR `release/*` ou `hotfix/*`.
-5. **Après la fusion d'une `release/*` ou d'un `hotfix/*` vers `main`**, ouvrir une PR de `main` vers `develop`, à fusionner par un commit de merge, jamais par *squash* ni *rebase* : le rappeler à l'utilisateur.
+5. **Après la fusion d'une `release/*` ou d'un `hotfix/*` vers `main`**, créer `sync/main-to-develop` à la pointe de `main`, la pousser et ouvrir une PR vers `develop`, jamais depuis `main` elle-même (la suppression automatique des branches fusionnées la supprimerait), à fusionner par un commit de merge, jamais par *squash* ni *rebase* : le rappeler à l'utilisateur.
 
 ## Ce que ce skill ne fait pas
 
