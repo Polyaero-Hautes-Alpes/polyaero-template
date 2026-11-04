@@ -1,0 +1,31 @@
+# Exemple de suivi des versions (ADR-0006 de polyaero-platform).
+# Pour un service ou un plugin : renommer ce fichier en dependabot.yml,
+# et ne garder que les écosystèmes du dépôt. Un prototype n'en a pas.
+version: 2
+updates:
+  - package-ecosystem: "pip"            # ou npm, nuget, docker, docker-compose, github-actions
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: "monthly"
+    cooldown:
+      default-days: 7
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    commit-message:
+      prefix: "chore"
+      include: "scope"                  # donne chore(deps): ...
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: "monthly"
+    cooldown:
+      default-days: 7
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    commit-message:
+      prefix: "chore"
+      include: "scope"
